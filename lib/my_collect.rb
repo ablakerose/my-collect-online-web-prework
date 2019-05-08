@@ -1,11 +1,9 @@
-require "pry"
-def my_collect(empty_array)
-  my_collect_capitalized = []
-  empty_array.each |name|
-  name.upcase
+def my_collect(collection)
+  i = 0
+  new_collection = []
+  while i < collection.length
+    new_collection << yield(collection[i])
+    i += 1
   end
-  name = my_collect_capitalized
-  binding.pry
-  end
-  my_collect_capitalized
+  new_collection
 end
